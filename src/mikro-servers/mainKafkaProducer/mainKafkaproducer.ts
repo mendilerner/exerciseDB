@@ -1,20 +1,5 @@
 import axios from 'axios';
-import {Kafka, logLevel} from 'kafkajs'
-import dotenv from 'dotenv';
-dotenv.config()
-
-const brokerHost = process.env.BROKER_HOST || "no host provided"
-if (brokerHost === 'no host provided') {
-    console.log('broker host is not defined in .env file');
-}
-else{
-  console.log(brokerHost);
-}
-// Initialize Kafka producer
-const kafka = new Kafka({
-  clientId: 'MkU3OEVBNTcwNTJENDM2Qk',
-  brokers: [brokerHost] // Replace with your Kafka broker(s)
-});
+import kafka from '../../kafka/kafkaInstance'
 
 const producer = kafka.producer();
 
@@ -39,7 +24,8 @@ async function sendRequestAndProduceData() {
         { value: JSON.stringify(dataToSend) }
       ]
     });
-
+    console.log(dataToSend);
+    
     console.log(`Data sent to Kafka at ${israelTimeISOString}`);
   } catch (error) {
     console.error('Error occurred:', error);

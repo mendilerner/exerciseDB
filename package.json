@@ -7,7 +7,8 @@
     "test": "vitest",
     "start": "node .",
     "dev": "nodemon .",
-    "build": "tsc -w"
+    "build": "tsc -w",
+    "runAll": "node ./dist/mikro-servers/storeInRedisServer/storeInRedisServer.js && node ./dist/mikro-servers/mainKafkaProducer/mainKafkaproducer.js "
   },
   "keywords": [],
   "author": "",
@@ -27,6 +28,7 @@
     "express": "^4.18.2",
     "joi": "^17.9.2",
     "kafkajs": "^2.2.4",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "redis": "^4.6.12"
   }
 }
