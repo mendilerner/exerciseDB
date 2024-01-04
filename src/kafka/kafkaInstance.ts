@@ -12,7 +12,7 @@ else{
 // Initialize Kafka producer
 const kafka = new Kafka({
   clientId: 'MkU3OEVBNTcwNTJENDM2QkACAC',
-  brokers: [brokerHost] // Replace with your Kafka broker(s)
+  brokers: ['localhost:9092'] // Replace with your Kafka broker(s)
 });
 
 export default kafka
