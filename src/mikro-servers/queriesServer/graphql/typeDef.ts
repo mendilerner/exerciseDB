@@ -1,8 +1,9 @@
-import { misselsQueryTypeDefs } from '../modules/missels/misselsTypeDefs';
-  const typeDefs = `#graphql   
+import { misselsQueryTypeDefs, misselsTypeDefs } from '../modules/missels/misselsTypeDefs';
+const typeDefs = `#graphql 
+    ${misselsTypeDefs}  
     type Query{
       ${misselsQueryTypeDefs}
     } 
      `;
-  
-  export default typeDefs;
+
+export default typeDefs;

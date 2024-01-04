@@ -1,3 +1,7 @@
+
+
+
+
 import kafka from '../../kafka/kafkaInstance'
 import {createClient} from 'redis'
 import {  KafkaMessage } from 'kafkajs';
@@ -35,6 +39,8 @@ const processMessage = async ( message : KafkaMessage) => {
               "missileAmount": missileAmount,
               creationTime: requestTime,
               lastUpdateTime: requestTime,
+              source:source,
+              destination:destination,
           })
       }
       else{

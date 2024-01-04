@@ -9,6 +9,8 @@ import typeDefs from "./graphql/typeDef";
 import resolvers from "./graphql/resolvers";
 import { connectToRedis } from "./redisClient";
 
+import morganLogger from "./logger/morgan";
+
 interface MyContext {
     token?: String;
   }
@@ -27,6 +29,7 @@ interface MyContext {
       '/graphql',
       cors<cors.CorsRequest>(),
       express.json(),
+      morganLogger,
       expressMiddleware(server, {
         context: async ({ req }) => ({ token: req.headers.token }),
       }),

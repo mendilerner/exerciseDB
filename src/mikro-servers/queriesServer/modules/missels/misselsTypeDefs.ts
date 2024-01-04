@@ -1,29 +1,38 @@
-// const biTypeDefs = `#graphql
-// type Shipping {
-//     _id: String
-//     orderId: String!
-//     orderDateExecution: String!
-// }
+ export const misselsTypeDefs = `#graphql
 
-// type CompletedOrders {
-//     completedOrders: Int!
-//     date: String!
-// }
 
-// type ProfitsAndRevenue {
-//     month: String!
-//     revenue: Float!
-//     profits: Float!
-// }
+   type MaxCountry {
+       source: String
+       theMostAttacks: Int
+   }
+   type MaxRoundsCountry {
+    source: String
+    theMostRounds: Int
+}
+  type EarliestOrLatestCountry {
+    source: String
+    attackTime: String
+  }
 
-// type TopProducts {
-//     productName: String!
-//     profits: Float!
-//     unitsSold: Int!
-// }
-// `
+  type AttackedArea {
+    area: String
+    totalMisslesToArea: String
+
+  }
+
+  type AverageMisselsForArea {
+    destination: String
+    areaAvgMissels: Float
+  }
+ `
 export const misselsQueryTypeDefs = `#graphql
-    getHighestAmountOfMisselsCountry: String
+    getHighestAmountOfMisselsCountry: MaxCountry
+    getHighestAmountOfRoundsCountry: MaxRoundsCountry
+    getEarliestCountryAttack: EarliestOrLatestCountry
+    getLatestCountryAttack: EarliestOrLatestCountry
+    getListOfCountries: [String]
+    getTheMostAttackedArea: AttackedArea
+    getTheLeastAttackedArea: AttackedArea
+    getAvgOfMisselsForArea: [AverageMisselsForArea]
   `;
 
-// export default biTypeDefs
